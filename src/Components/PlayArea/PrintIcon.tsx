@@ -1,7 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useDispatch } from 'react-redux';
-import { selectCell } from '../../redux/gameStatus/gameStatusSlice';
+import { nextMove } from '../../redux/gameStatus/gameStatusSlice';
 
 const useStyles = createUseStyles({
   cell: {
@@ -21,7 +21,9 @@ const PrintIcon = ({ icon, index }: any) => {
 
   const dispach = useDispatch();
   const handleCell = () => {
-    dispach(selectCell(index));
+    if (!result) {
+      dispach(nextMove(index));
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 {
   "name": "tic_tac_toe",
   "version": "0.1.0",
+  "author": "José Abel López López",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",

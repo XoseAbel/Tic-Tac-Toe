@@ -3,7 +3,12 @@ import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import backImg from './backImg.jpg';
 import { PrintIcon } from './PrintIcon';
-import { selectIcons, selectGameId } from '../../redux/gameStatus/selectors';
+import {
+  selectFigure,
+  selectGameId,
+  selectIcons,
+  selectPosition,
+} from '../../redux/gameStatus/selectors';
 
 const useStyles = createUseStyles({
   gridArea: {
@@ -22,10 +27,14 @@ const PlayArea = () => {
   const classes = useStyles();
 
   const icons = useSelector(selectIcons);
-  const startGame = useSelector(selectGameId);
+  const id = useSelector(selectGameId);
+  const figure = useSelector(selectFigure);
+  const position = useSelector(selectPosition);
 
   return (
-    startGame && (
+    id &&
+    figure &&
+    position && (
       <div className={classes.gridArea}>
         {icons.map((icon: string, index: number) => (
           <PrintIcon key={`${index}-icon`} icon={icon} index={index} />
